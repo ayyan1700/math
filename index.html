@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<body>
+    <h2>Arithmetic Operations on a Number</h2>
+    <p>Enter a number:</p>
+    <input type="number" id="numbeInput" placeholder="Enter a number">
+    <button onclick="performArithmetic()">Calculate</button>
+
+    <div id="result" style="margin-top: 20px;"></div>
+
+
+     <h2> What will be the output in variables a, b & result after   execution of the following script: result in console</h2>
+
+
+    <h2>Welcome to the Greeting Program</h2>
+    <p>Please enter your name:</p> 
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="greetUser()">Greet Me</button>
+    <div id="greeting" style="margin-top: 20px; font-size: 1.2em;"></div>
+
+
+
+    <h2>Multiplication Table Generator</h2>
+    <p>Enter a number to display its multiplication table:</p>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="displayTable()">Generate Table</button>
+    <div id="tableResult" style="margin-top: 20px;"></div>
+
+
+
+
+
+
+
+
+    <h2>Student Marks Calculation</h2>
+    <p>Click the button to enter the details and calculate the result.</p>
+    <button onclick="calculateResults()">Calculate Result</button>
+    <div id="resu" style="margin-top: 20px;"></div>
+
+
+
+
+
+
+<script>
+        function performArithmetic() {
+            let num = parseFloat(document.getElementById('numbInput').value);
+            
+            if (isNaN(num)) {
+                alert("Please enter a valid number!");
+                return;
+            }
+            let addition = num + 10;
+            let subtraction = num - 5;
+            let multiplication = num * 2;
+            let division = num / 2;
+            document.getElementById('result').innerHTML = `
+                <strong>Results:</strong><br>
+                Addition (number + 10): ${addition}<br>
+                Subtraction (number - 5): ${subtraction}<br>
+                Multiplication (number * 2): ${multiplication}<br>
+                Division (number / 2): ${division}
+            `;
+        }
+
+
+        var a = 2, b = 1;
+        var result = --a - --b + ++b + b--;
+        console.log(a)
+        console.log(b)
+        console.log(result)
+
+
+
+        function greetUser() {  
+            let userName = document.getElementById('nameInput').value;
+            if (userName.trim() === "") {
+                alert("Please enter your name.");
+            } else {
+                document.getElementById('greeting').innerHTML = "Hello, " + userName + "! Welcome!";
+            }
+        }
+
+
+
+
+
+        function displayTable() {
+            let number = document.getElementById('numberInput').value;
+            if (number === "") {
+                number = 5;
+            } else {
+                number = parseInt(number);
+                if (isNaN(number)) {
+                    number = 5;
+                }
+            }
+            let tableHTML = "<h3>Multiplication Table of " + number + "</h3><ul>";
+            for (let i = 1; i <= 10; i++) {
+                tableHTML += "<li>" + number + " x " + i + " = " + (number * i) + "</li>";
+            }
+            tableHTML += "</ul>";
+            document.getElementById('tableResult').innerHTML = tableHTML;
+        }
+
+
+
+
+
+
+
+
+        function calculateResults() {
+            let subject1 = prompt("Enter the name of the first subject:");
+            let subject2 = prompt("Enter the name of the second subject:");
+            let subject3 = prompt("Enter the name of the third subject:");
+            let totalMarksPerSubject = 100;
+            let marks1 = parseFloat(prompt(`Enter obtained marks for ${subject1}:`));
+            let marks2 = parseFloat(prompt(`Enter obtained marks for ${subject2}:`));
+            let marks3 = parseFloat(prompt(`Enter obtained marks for ${subject3}:`));
+            let totalMarks = totalMarksPerSubject * 3;  
+            let obtainedMarks = marks1 + marks2 + marks3; 
+            let percentage = (obtainedMarks / totalMarks) * 100; 
+            let resultHTML = `
+                <h3>Result</h3>
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Total Marks</th>
+                        <th>Obtained Marks</th>
+                    </tr>
+                    <tr>
+                        <td>${subject1}</td>
+                        <td>${totalMarksPerSubject}</td>
+                        <td>${marks1}</td>
+                    </tr>
+                    <tr>
+                        <td>${subject2}</td>
+                        <td>${totalMarksPerSubject}</td>
+                        <td>${marks2}</td>
+                    </tr>
+                    <tr>
+                        <td>${subject3}</td>
+                        <td>${totalMarksPerSubject}</td>
+                        <td>${marks3}</td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <th>${totalMarks}</th>
+                        <th>${obtainedMarks}</th>
+                    </tr>
+                    <tr>
+                        <th>Percentage</th>
+                        <th colspan="2">${percentage.toFixed(2)}%</th>
+                    </tr>
+                </table>
+            `;
+            document.getElementById('resu').innerHTML = resultHTML;
+        }
+
+
+
+         
+
+
+
+
+
+</script>
+</body>
+</html>
